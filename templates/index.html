@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+{% static 'images' as baseUrl %}
+{% block title %}Home{% endblock title %}
+{% block homeactive %}active{% endblock homeactive %}
+
+{% block body %}
+	<!-- Home -->
+	<div class="home">
+		
+		<!-- Home Slider -->
+		<div class="home_slider_container">
+			<div class="owl-carousel owl-theme home_slider">
+				
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image" style="background-image:url(static/images/home_slider.jpg)"></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Let us take you away</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image" style="background-image:url(static/images/why.jpg)"></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Let us take you away</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image" style="background-image:url(static/images/why_1.jpg)"></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Let us take you away</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Search -->
+
+	<div class="home_search">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container">
+						<div class="home_search_title">Search for your trip</div>
+						<div class="home_search_content">
+							<form action="#" class="home_search_form" id="home_search_form">
+								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+									<input type="text" class="search_input search_input_1" placeholder="City" required="required">
+									<input type="text" class="search_input search_input_2" placeholder="Departure" required="required">
+									<input type="text" class="search_input search_input_3" placeholder="Arrival" required="required">
+									<input type="text" class="search_input search_input_4" placeholder="Budget" required="required">
+									<button class="home_search_button">search</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Intro -->
+
+	<div class="intro">
+		<div class="intro_background" style="background-image:url(static/images/intro.png)"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="intro_container">
+						<div class="row">
+
+							<!-- Intro Item -->
+							<div class="col-lg-4 intro_col">
+								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
+									<div class="intro_icon"><img src=" {% static 'images/beach.svg' %} " alt=""></div>
+									<div class="intro_content">
+										<div class="intro_title">Top Destinations</div>
+										<div class="intro_subtitle"><p>We'll help you to see most beautiful places</p></div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Intro Item -->
+							<div class="col-lg-4 intro_col">
+								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
+									<div class="intro_icon"><img src="{% static 'images/wallet.svg' %}" alt=""></div>
+									<div class="intro_content">
+										<div class="intro_title">The Best Prices</div>
+										<div class="intro_subtitle"><p>Travelkit allways Offer the best price</p></div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Intro Item -->
+							<div class="col-lg-4 intro_col">
+								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
+									<div class="intro_icon"><img src="{% static 'images/suitcase.svg' %}" alt=""></div>
+									<div class="intro_content">
+										<div class="intro_title">Amazing Services</div>
+										<div class="intro_subtitle"><p>We're able to give you the best service at cheap</p></div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>		
+			</div>
+		</div>
+	</div>
+
+	<!-- Destinations -->
+
+	<div class="destinations" id="destinations">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_subtitle">Best Amazing Places with offers</div>
+					<div class="section_title"><h2>Popular Destinations</h2></div>
+				</div>
+			</div>
+			<div class="row destinations_row">
+				<div class="col">
+					<div class="destinations_container item_grid">
+
+                        {% for dest in dests %} 
+						<!-- Destination -->
+						<div class="destination item">
+							<div class="destination_image">
+								<img src="{{dest.img.url}}" alt="">
+								{% if dest.offer %}
+								<div class="spec_offer text-center"><a href="/destinations">Special Offer</a></div>
+								{% endif %}
+							</div>
+							<div class="destination_content">
+								<div class="destination_title"><a href="/destinations">{{dest.name}}</a></div>
+								<div class="destination_subtitle"><p>{{dest.desc}}</p></div>
+								<div class="destination_price">From &#2547; {{dest.price}}</div>
+							</div>
+						</div>
+                        {% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Testimonials -->
+
+	<div class="testimonials" id="testimonials">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="static/images/testimonials.jpg" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_subtitle">Our Honorable Cilents</div>
+					<div class="section_title"><h2>Top Reviews</h2></div>
+				</div>
+			</div>
+			<div class="row testimonials_row">
+				<div class="col">
+
+					<!-- Testimonials Slider -->
+					<div class="testimonials_slider_container">
+						<div class="owl-carousel owl-theme testimonials_slider">
+							
+							<!-- Slide -->
+							<div class="owl-item text-center">
+								<div class="testimonial">This is the best site I've ever seen before. Here you'll find the best places with cheap price. </div>
+								<div class="testimonial_author">
+									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
+										<div>Shimul,</div>
+										<div>honorable client</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Slide -->
+							<div class="owl-item text-center">
+								<div class="testimonial">They Help me as like as my friend. </div>
+								<div class="testimonial_author">
+									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
+										<div>Popy,</div>
+										<div>honorble client</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Slide -->
+							<div class="owl-item text-center">
+								<div class="testimonial">They have amazing travel guid</div>
+								<div class="testimonial_author">
+									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
+										<div>Chapa</div>
+										<div>honorable client</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock body %}
