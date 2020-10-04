@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Travelkit',
         'USER' : 'postgres',
-        'PASSWORD' : '6234',
+        'PASSWORD' : '@ShimuL.0561',
         'HOST': 'localhost',
 
     }
